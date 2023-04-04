@@ -47,7 +47,7 @@
             <version>8.0.1</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.6.1.Final</version>
@@ -74,7 +74,7 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
@@ -103,7 +103,7 @@
     </dependencies>
 
     <build>
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -113,7 +113,7 @@
                     <compilerArgument>-proc:none</compilerArgument>
                 </configuration>
             </plugin>
-        </plugins>
+        </plugins>-->
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -242,10 +242,10 @@
                         </configuration>
                     </plugin>-->
 
-                    <plugin>
+                    <!--<plugin>
                         <groupId>org.bsc.maven</groupId>
                         <artifactId>maven-processor-plugin</artifactId>
-                    </plugin>
+                    </plugin>-->
 
                     <plugin>
                         <groupId>com.oracle.weblogic</groupId>
