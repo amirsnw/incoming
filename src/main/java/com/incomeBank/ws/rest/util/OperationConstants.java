@@ -3,9 +3,6 @@ package com.incomeBank.ws.rest.util;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by s_tayari on 7/31/2019.
- */
 public class OperationConstants {
 
     public static final String GET = "get";

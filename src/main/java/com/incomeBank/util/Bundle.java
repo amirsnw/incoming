@@ -22,7 +22,7 @@ public class Bundle {
 		this.bundle = NONEXISTENT_BUNDLE;
 	}
 
-	// TODO s_tayari: remove these constructors so only ResourceBundle 
+	// TODO: remove these constructors so only ResourceBundle
 	// one remains
 	public Bundle(String bundlePath, Locale locale) {
 		this.bundle = ResourceBundle.getBundle(bundlePath, locale);

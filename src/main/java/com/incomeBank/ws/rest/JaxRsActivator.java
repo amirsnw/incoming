@@ -16,6 +16,8 @@
  */
 package com.incomeBank.ws.rest;
 
+import com.incomeBank.ws.rest.util.feature.JacksonFeature;
+import com.incomeBank.ws.rest.util.mapper.CustomObjectMapperProvider;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.glassfish.jersey.server.wadl.WadlFeature;
@@ -27,10 +29,12 @@ public class JaxRsActivator extends ResourceConfig {
 
     public JaxRsActivator() {
         this.property("jersey.config.disableAutoDiscovery", Boolean.valueOf(true));
-        this.packages(new String[]{"com.incomeBank.ws.rest"});
+        this.packages(new String[]{"com.incomeBank.ws.rest", "com.fasterxml.jackson.jaxrs"});
         this.register(RolesAllowedDynamicFeature.class);
         // this.register(JwtDynamicFeature.class);
         this.register(WadlFeature.class);
+        register(CustomObjectMapperProvider.class);
+        register(JacksonFeature.class);
         // this.register(WebApplicationExceptionMapper.class);
     }
 
