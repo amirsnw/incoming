@@ -1,5 +1,6 @@
 package com.incomeBank.util;
 
+import com.incomeBank.entity.ReportEntity;
 import com.incomeBank.ws.rest.util.Filter;
 import com.incomeBank.ws.rest.util.FilterWrapper;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class BaseDAOService<T> {
+public abstract class BaseRepository<T> {
 
     public abstract Class<T> getClazz();
 
@@ -147,5 +148,10 @@ public abstract class BaseDAOService<T> {
             }
         }
         return predicates;
+    }
+
+    public ReportEntity save(ReportEntity reportEntity) {
+        getEntityManager().persist(reportEntity);
+        return reportEntity;
     }
 }

@@ -3,40 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.incomeBank.ws.rest.financialDoc;
+package com.incomeBank.ws.rest.controller;
 
-import com.incomeBank.service.financialDoc.FinancialDocService;
+import com.incomeBank.entity.ReportEntity;
+import com.incomeBank.service.ReportService;
 import com.incomeBank.util.ResponseHelper;
 import com.incomeBank.ws.rest.util.FilterWrapper;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@Path("/financial-doc")
+@Path("/report")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
-public class FinancialDocRestService {
+public class ReportController {
 
     @Inject
-    FinancialDocService service;
+    ReportService service;
 
     @GET
-    @Path("/get-all")
-    // @RolesAllowed({Roles.MALI_SETAD_DRMD_USER, Roles.MALI_BRANCH_DRMD_USER})
-    public Response getAll(@QueryParam("filter") FilterWrapper filterWrapper,
+    @Path("/v1/search")
+    public Response search(@QueryParam("filter") FilterWrapper filterWrapper,
                            @QueryParam("start") Integer start,
                            @QueryParam("limit") Integer limit,
                            @Context UriInfo ui,
                            @Context HttpServletRequest request,
                            @Context SecurityContext sc)
-            throws WebApplicationException, IOException, SQLException {
+            throws WebApplicationException {
 
         return ResponseHelper.ok(service.getAll(filterWrapper, start, limit));
+    }
+
+    @POST
+    @Path("/v1/create")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createCar(@Valid @NotNull ReportEntity reportEntity) {
+        return ResponseHelper.ok(service.create(reportEntity));
     }
 }

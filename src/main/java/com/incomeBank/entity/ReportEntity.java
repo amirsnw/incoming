@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.incomeBank.model.financialDoc;
+package com.incomeBank.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -25,12 +22,13 @@ import java.math.BigDecimal;
 public class ReportEntity implements Serializable {
 
     @Id
-    @Column(name = "DOCID")
-    private String rowId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private String id;
 
-    @Column(name = "ACC_CODE")
-    private String accountCode;
+    @Column(name = "code")
+    private String code;
 
-    @Column(name = "AMT")
-    private BigDecimal debtAmount;
+    @Column(name = "amount")
+    private BigDecimal amount;
 }

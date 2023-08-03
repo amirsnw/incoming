@@ -31,8 +31,6 @@ public class JaxRsActivator extends ResourceConfig {
         this.property("jersey.config.disableAutoDiscovery", Boolean.valueOf(true));
         this.packages(new String[]{"com.incomeBank.ws.rest", "com.fasterxml.jackson.jaxrs"});
         this.register(RolesAllowedDynamicFeature.class);
-        // this.register(JwtDynamicFeature.class);
-        this.register(WadlFeature.class);
         register(CustomObjectMapperProvider.class);
         register(JacksonFeature.class);
         // this.register(WebApplicationExceptionMapper.class);

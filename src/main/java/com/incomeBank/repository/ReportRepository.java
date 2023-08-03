@@ -1,12 +1,12 @@
-package com.incomeBank.dao.financialDoc;
+package com.incomeBank.repository;
 
-import com.incomeBank.model.financialDoc.ReportEntity;
-import com.incomeBank.util.BaseDAOService;
+import com.incomeBank.entity.ReportEntity;
+import com.incomeBank.util.BaseRepository;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-public class ReportRepository extends BaseDAOService<ReportEntity> {
+public class ReportRepository extends BaseRepository<ReportEntity> {
 
     @Inject
     private EntityManager em;

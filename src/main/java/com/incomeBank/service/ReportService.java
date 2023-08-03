@@ -1,18 +1,21 @@
-package com.incomeBank.service.financialDoc;
+package com.incomeBank.service;
 
-import com.incomeBank.dao.financialDoc.ReportRepository;
+import com.incomeBank.entity.ReportEntity;
+import com.incomeBank.repository.ReportRepository;
 import com.incomeBank.util.Bundle;
 import com.incomeBank.util.annotation.MessageBundle;
 import com.incomeBank.util.annotation.WebProperties;
 import com.incomeBank.ws.rest.util.FilterWrapper;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.*;
 
-public class FinancialDocService {
+@Transactional
+public class ReportService {
 
     @Inject
-    private ReportRepository financialDAOService;
+    private ReportRepository repository;
 
     @Inject
     @MessageBundle
@@ -26,12 +29,16 @@ public class FinancialDocService {
 
         Map<String, Object> map = new HashMap<>();
         try {
-            map.put("list", financialDAOService.search(filterWrapper, start, limit));
-            map.put("total", financialDAOService.getCount(filterWrapper));
+            map.put("list", repository.search(filterWrapper, start, limit));
+            map.put("total", repository.getCount(filterWrapper));
         } catch (Exception ex) {
             throw ex;
         }
 
         return map;
+    }
+
+    public ReportEntity create (ReportEntity reportEntity) {
+        return repository.save(reportEntity);
     }
 }

@@ -2,8 +2,14 @@ package com.incomeBank.ws.rest.util;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.Data;
 
+@Data
 public class Filter {
+
+    private String property;
+    private String value;
+    private Operator operator;
 
     public enum Operator {
         _EQUAL("equal"),
@@ -47,80 +53,5 @@ public class Filter {
             }
             return null;
         }
-    }
-
-    private String property;
-    private String value;
-    private Operator operator;
-
-    public Filter() {
-    }
-
-    public Filter(String property, String value, Operator operator) {
-        this.property = property;
-        this.value = value;
-        this.operator = operator;
-    }
-
-    public String getProperty() {
-        return property;
-    }
-
-    public void setProperty(String property) {
-        this.property = property;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public Operator getOperator() {
-        return operator;
-    }
-
-    public void setOperator(Operator operator) {
-        this.operator = operator;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Filter filter = (Filter) o;
-
-        if (!property.equalsIgnoreCase(filter.property)) return false;
-        Operator op1 = operator;
-        Operator op2 = filter.operator;
-
-        if(Operator._EQUAL.equals(op1))
-            op1 = Operator.EQUAL;
-        if(Operator._EQUAL.equals(op2))
-            op2 = Operator.EQUAL;
-
-        return op1 == op2;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = property.toLowerCase().hashCode();
-        Operator op = operator;
-        if(Operator._EQUAL.equals(op))
-            op = Operator.EQUAL;
-        result = 31 * result + op.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Filter{" +
-                "property='" + property + '\'' +
-                ", value='" + value + '\'' +
-                ", operator=" + operator +
-                '}';
     }
 }

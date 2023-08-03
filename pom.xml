@@ -212,35 +212,6 @@
                 </plugin>
 
                 <plugin>
-                    <groupId>org.bsc.maven</groupId>
-                    <artifactId>maven-processor-plugin</artifactId>
-                    <version>${version.processor.plugin}</version>
-                    <executions>
-                        <execution>
-                            <id>eclipselink-jpa-metamodel</id>
-                            <goals>
-                                <goal>process</goal>
-                            </goals>
-                            <phase>generate-sources</phase>
-                            <configuration>
-                                <compilerArguments>-Aeclipselink.persistencexml=${basedir}/src/main/resources/META-INF/persistence.xml</compilerArguments>
-                                <processors>
-                                    <processor>org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor</processor>
-                                </processors>
-                                <outputDirectory>${project.build.directory}/generated-sources/meta-model</outputDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.eclipse.persistence</groupId>
-                            <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
-                            <version>${version.eclipselink.jpa_2.0}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${version.resources.plugin}</version>
@@ -306,11 +277,6 @@
                                 </resource>
                             </webResources>
                         </configuration>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.bsc.maven</groupId>
-                        <artifactId>maven-processor-plugin</artifactId>
                     </plugin>
 
                     <plugin>

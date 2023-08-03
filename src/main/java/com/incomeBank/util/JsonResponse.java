@@ -18,6 +18,7 @@ public class JsonResponse<T> implements Serializable {
 
     private T data;
 
+
     /**
      * Used for response mapping.
      */

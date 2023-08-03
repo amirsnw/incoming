@@ -21,23 +21,29 @@ public class JacksonFeature implements Feature {
 
     public boolean configure(FeatureContext context) {
         Configuration config = context.getConfiguration();
-        String jsonFeature = (String) CommonProperties.getValue(config.getProperties(), config.getRuntimeType(), "jersey.config.jsonFeature", JSON_FEATURE, String.class);
+        String jsonFeature = CommonProperties.getValue(config.getProperties(),
+                config.getRuntimeType(),
+                "jersey.config.jsonFeature",
+                JSON_FEATURE,
+                String.class);
         if (!JSON_FEATURE.equalsIgnoreCase(jsonFeature)) {
             return false;
         } else {
-            context.property(PropertiesHelper.getPropertyNameForRuntime("jersey.config.jsonFeature", config.getRuntimeType()), JSON_FEATURE);
+            context.property(PropertiesHelper
+                    .getPropertyNameForRuntime("jersey.config.jsonFeature",
+                            config.getRuntimeType()), JSON_FEATURE);
             if (!config.isRegistered(JacksonJaxbJsonProvider.class)) {
-                // removed these to avoid conflict with framework ExceptionMappers
                 /*context.register(JsonParseExceptionMapper.class);
                 context.register(JsonMappingExceptionMapper.class);*/
                 if (EntityFilteringFeature.enabled(config)) {
                     context.register(JacksonFilteringFeature.class);
-                    context.register(FilteringJacksonJaxbJsonProvider.class, new Class[]{MessageBodyReader.class, MessageBodyWriter.class});
+                    context.register(FilteringJacksonJaxbJsonProvider.class,
+                            new Class[]{MessageBodyReader.class, MessageBodyWriter.class});
                 } else {
-                    context.register(JacksonJaxbJsonProvider.class, new Class[]{MessageBodyReader.class, MessageBodyWriter.class});
+                    context.register(JacksonJaxbJsonProvider.class,
+                            new Class[]{MessageBodyReader.class, MessageBodyWriter.class});
                 }
             }
-
             return true;
         }
     }

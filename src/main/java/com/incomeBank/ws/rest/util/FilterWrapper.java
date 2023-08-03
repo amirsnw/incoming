@@ -28,17 +28,20 @@ public class FilterWrapper {
         }
     }
 
-    /*public static FilterWrapper createWrapperWithFilter(String property, Filter.Operator operator, String value) {
+    public static FilterWrapper createWrapperWithFilter(String property,
+                                                        Filter.Operator operator,
+                                                        String value) {
+        FilterWrapper fw = new FilterWrapper();
         Set<Filter> filters = new HashSet<>();
         Filter filter = new Filter();
+
         filter.setOperator(operator);
         filter.setProperty(property);
         filter.setValue(value);
         filters.add(filter);
-        FilterWrapper fw = new FilterWrapper();
         fw.setFilters(filters);
         return fw;
-    }*/
+    }
 
     public FilterWrapper createOperationFilter(String operation) {
         addFilter("operation", Filter.Operator.EQUAL, operation);
@@ -62,7 +65,8 @@ public class FilterWrapper {
         Iterator<Filter> it1 = filters.iterator();
         while (it1.hasNext()) {
             Filter filter = it1.next();
-            if (filter.getProperty().equals(property) && filter.getOperator().equals(operator))
+            if (filter.getProperty().equals(property)
+                    && filter.getOperator().equals(operator))
                 it1.remove();
         }
 
@@ -92,10 +96,9 @@ public class FilterWrapper {
     }
 
     public boolean hasDefaultOperation() {
-        if(hasOperation()) {
+        if (hasOperation()) {
             return getOperation().endsWith("." + OperationConstants.GET);
         }
-
         return false;
     }
 
@@ -108,7 +111,6 @@ public class FilterWrapper {
             if (filter.getProperty().equals(property))
                 return filter;
         }
-
         return null;
     }
 
@@ -126,10 +128,10 @@ public class FilterWrapper {
     public Map<String, String> toMap() {
         Map<String, String> filterMap = new HashMap<>();
         for (Filter filter : filters) {
-            if (filter.getOperator().equals(Filter.Operator.EQUAL) || filter.getOperator().equals(Filter.Operator._EQUAL))
+            if (filter.getOperator().equals(Filter.Operator.EQUAL)
+                    || filter.getOperator().equals(Filter.Operator._EQUAL))
                 filterMap.put(filter.getProperty(), filter.getValue());
         }
-
         return filterMap;
     }
 
