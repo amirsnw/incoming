@@ -5,7 +5,6 @@
         <jta-data-source>${datasource.jndiName}</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-            <!--<property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>-->
             <property name="eclipselink.ddl-generation" value="none"/>
             <property name="eclipselink.query-results-cache" value="true"/>
             <property name="eclipselink.cache.shared.default" value="false"/>
@@ -13,7 +12,6 @@
             <property name="eclipselink.logging.level.sql" value="FINE"/>
             <property name="eclipselink.logging.parameters" value="true"/>
             <property name="eclipselink.logging.logger" value="DefaultLogger"/>
-            <!--            <property name="eclipselink.logging.file" value="output.log"/>-->
         </properties>
     </persistence-unit>
 </persistence>

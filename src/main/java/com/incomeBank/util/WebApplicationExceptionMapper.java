@@ -21,7 +21,7 @@ public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplica
         if (!"".equals(exception.getMessage())) {
             message = exception.getMessage();
         } else {
-            message = messageBundle.getProperty("financialDoc.filterIsEmpty");
+            message = messageBundle.getProperty("record.filterIsEmpty");
         }
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                 .header("X-Internal-Server-Error", message)

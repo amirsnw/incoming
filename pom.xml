@@ -5,23 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.snw</groupId>
-    <artifactId>Incoming</artifactId>
+    <artifactId>javaee8-baseline</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Incoming</name>
+    <name>javaee8-baseline</name>
     <packaging>war</packaging>
-
-    <!--<repositories>
-        <repository>
-            <id>internal</id>
-            <url>http://localhost:8081/service/rest/repository/browse/maven-releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,35 +56,6 @@
             <version>8.0.1</version>
             <scope>provided</scope>
         </dependency>
-        <!--<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.6.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.2.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-            <scope>provided</scope>
-        </dependency>-->
-
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
@@ -126,7 +84,6 @@
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -254,7 +211,7 @@
                     </executions>
                 </plugin>
 
-                <!--<plugin>
+                <plugin>
                     <groupId>org.bsc.maven</groupId>
                     <artifactId>maven-processor-plugin</artifactId>
                     <version>${version.processor.plugin}</version>
@@ -281,7 +238,7 @@
                             <version>${version.eclipselink.jpa_2.0}</version>
                         </dependency>
                     </dependencies>
-                </plugin>-->
+                </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

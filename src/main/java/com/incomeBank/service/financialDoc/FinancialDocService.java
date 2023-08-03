@@ -1,6 +1,6 @@
 package com.incomeBank.service.financialDoc;
 
-import com.incomeBank.dao.financialDoc.FinancialDocDAOService;
+import com.incomeBank.dao.financialDoc.ReportRepository;
 import com.incomeBank.util.Bundle;
 import com.incomeBank.util.annotation.MessageBundle;
 import com.incomeBank.util.annotation.WebProperties;
@@ -12,7 +12,7 @@ import java.util.*;
 public class FinancialDocService {
 
     @Inject
-    private FinancialDocDAOService financialDAOService;
+    private ReportRepository financialDAOService;
 
     @Inject
     @MessageBundle
