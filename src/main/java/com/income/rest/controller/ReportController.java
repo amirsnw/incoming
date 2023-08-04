@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.incomeBank.ws.rest.controller;
+package com.income.rest.controller;
 
-import com.incomeBank.entity.ReportEntity;
-import com.incomeBank.service.ReportService;
-import com.incomeBank.util.ResponseHelper;
-import com.incomeBank.ws.rest.util.FilterWrapper;
+import com.income.dto.FilterWrapper;
+import com.income.entity.ReportEntity;
+import com.income.rest.util.ResponseHelper;
+import com.income.service.ReportService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,8 +17,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import java.io.IOException;
-import java.sql.SQLException;
 
 @Path("/report")
 @Produces(MediaType.APPLICATION_JSON)
@@ -45,7 +43,7 @@ public class ReportController {
     @POST
     @Path("/v1/create")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createCar(@Valid @NotNull ReportEntity reportEntity) {
+    public Response createCar(@Valid @NotNull ReportEntity reportEntity) throws WebApplicationException {
         return ResponseHelper.ok(service.create(reportEntity));
     }
 }

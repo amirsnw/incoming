@@ -1,8 +1,8 @@
-package com.incomeBank.util;
+package com.income.repository;
 
-import com.incomeBank.entity.ReportEntity;
-import com.incomeBank.ws.rest.util.Filter;
-import com.incomeBank.ws.rest.util.FilterWrapper;
+import com.income.dto.Filter;
+import com.income.dto.FilterWrapper;
+import com.income.entity.ReportEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

@@ -1,12 +1,13 @@
-package com.incomeBank.util;
+package com.income.config;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import com.incomeBank.util.annotation.MessageBundle;
-import com.incomeBank.util.annotation.WebProperties;
+import com.income.annotation.MessageBundle;
+import com.income.annotation.WebProperties;
+import com.income.util.Bundle;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;

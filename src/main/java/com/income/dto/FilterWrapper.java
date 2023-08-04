@@ -1,8 +1,12 @@
-package com.incomeBank.ws.rest.util;
+package com.income.dto;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
+import com.income.constants.OperationConstants;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.IOException;
 import java.util.*;

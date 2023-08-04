@@ -1,4 +1,4 @@
-package com.incomeBank.ws.rest.util;
+package com.income.constants;
 
 import java.util.Arrays;
 import java.util.List;

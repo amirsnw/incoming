@@ -1,7 +1,6 @@
-package com.incomeBank.repository;
+package com.income.repository;
 
-import com.incomeBank.entity.ReportEntity;
-import com.incomeBank.util.BaseRepository;
+import com.income.entity.ReportEntity;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;

@@ -1,4 +1,4 @@
-package com.incomeBank.util;
+package com.income.util;
 
 import java.text.MessageFormat;
 import java.util.Enumeration;
@@ -46,12 +46,5 @@ public class Bundle {
 
 	public boolean contains(String key) {
 		return bundle.containsKey(key);
-	}
-
-	@Override
-	public String toString() {
-		return "Bundle{" +
-				"bundleBaseName=" + bundle.getBaseBundleName() +
-				'}';
 	}
 }

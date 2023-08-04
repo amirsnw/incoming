@@ -3,18 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.incomeBank.entity;
+package com.income.entity;
 
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-
-/**
- *
- * @author a_khalighi
- */
 
 @Entity
 @Data
@@ -24,7 +19,7 @@ public class ReportEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @Column(name = "code")
     private String code;

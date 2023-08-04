@@ -14,13 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.incomeBank.ws.rest;
+package com.income.rest;
 
-import com.incomeBank.ws.rest.util.feature.JacksonFeature;
-import com.incomeBank.ws.rest.util.mapper.CustomObjectMapperProvider;
+import com.income.rest.mapper.CustomExceptionMapper;
+import com.income.rest.mapper.ObjectMapperProvider;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
-import org.glassfish.jersey.server.wadl.WadlFeature;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -28,12 +27,12 @@ import javax.ws.rs.ApplicationPath;
 public class JaxRsActivator extends ResourceConfig {
 
     public JaxRsActivator() {
-        this.property("jersey.config.disableAutoDiscovery", Boolean.valueOf(true));
-        this.packages(new String[]{"com.incomeBank.ws.rest", "com.fasterxml.jackson.jaxrs"});
+        this.property("jersey.config.disableAutoDiscovery",
+                Boolean.valueOf(true));
+        this.packages("com.income.rest", "com.fasterxml.jackson.jaxrs");
         this.register(RolesAllowedDynamicFeature.class);
-        register(CustomObjectMapperProvider.class);
-        register(JacksonFeature.class);
-        // this.register(WebApplicationExceptionMapper.class);
+        register(ObjectMapperProvider.class);
+        register(CustomExceptionMapper.class);
     }
 
 }

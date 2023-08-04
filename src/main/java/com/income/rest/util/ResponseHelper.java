@@ -1,4 +1,6 @@
-package com.incomeBank.util;
+package com.income.rest.util;
+
+import com.income.dto.JsonResponse;
 
 import javax.ws.rs.core.EntityTag;
 import javax.ws.rs.core.Response;

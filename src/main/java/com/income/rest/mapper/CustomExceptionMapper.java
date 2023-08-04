@@ -1,6 +1,7 @@
-package com.incomeBank.util;
+package com.income.rest.mapper;
 
-import com.incomeBank.util.annotation.MessageBundle;
+import com.income.annotation.MessageBundle;
+import com.income.util.Bundle;
 
 import javax.inject.Inject;
 import javax.ws.rs.WebApplicationException;
@@ -9,14 +10,14 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplicationException> {
+public class CustomExceptionMapper implements ExceptionMapper<Exception> {
 
     @Inject
     @MessageBundle
     Bundle messageBundle;
 
     @Override
-    public Response toResponse(WebApplicationException exception) {
+    public Response toResponse(Exception exception) {
         String message = null;
         if (!"".equals(exception.getMessage())) {
             message = exception.getMessage();

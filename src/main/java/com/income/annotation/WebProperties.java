@@ -1,4 +1,4 @@
-package com.incomeBank.util.annotation;
+package com.income.annotation;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.*;

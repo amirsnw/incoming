@@ -1,29 +1,20 @@
-package com.incomeBank.service;
+package com.income.service;
 
-import com.incomeBank.entity.ReportEntity;
-import com.incomeBank.repository.ReportRepository;
-import com.incomeBank.util.Bundle;
-import com.incomeBank.util.annotation.MessageBundle;
-import com.incomeBank.util.annotation.WebProperties;
-import com.incomeBank.ws.rest.util.FilterWrapper;
+import com.income.dto.FilterWrapper;
+import com.income.entity.ReportEntity;
+import com.income.repository.ReportRepository;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
-import java.util.*;
+import javax.inject.Singleton;
+import javax.ws.rs.WebApplicationException;
+import java.util.HashMap;
+import java.util.Map;
 
-@Transactional
+@Singleton
 public class ReportService {
 
     @Inject
     private ReportRepository repository;
-
-    @Inject
-    @MessageBundle
-    Bundle messageBundle;
-
-    @Inject
-    @WebProperties
-    Bundle webBundle;
 
     public Map<String, Object> getAll (FilterWrapper filterWrapper, Integer start, Integer limit) {
 
